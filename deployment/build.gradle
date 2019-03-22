@@ -5,8 +5,7 @@
  */
 
 dependencies {
-    bundle project(':business-integrations')
-    bundle project(':consumer-solutions')
+    bundle project(':example')
 }
 
 // Configurations below are designed to be used with non-ephemeral gateways

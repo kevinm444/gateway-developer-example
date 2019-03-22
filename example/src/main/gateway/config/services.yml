@@ -1,0 +1,9 @@
+example/env-configuration:
+  url: "/env-configuration"
+  policy: "example/env-configuration"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
