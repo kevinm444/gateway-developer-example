@@ -5,7 +5,6 @@ pipeline {
         GIT_REPOSITORY = 'https://github.com/wynnel/gateway-developer-example'
         NEW_IMAGE_NAME = 'gateway'
         NEW_IMAGE_TAG = 'v1'
-        NEW_IMAGE_REGISTRY_HOSTNAME = 'docker.stable1.apimgcp.com'
         NEW_IMAGE_REGISTRY_REPOSITORY    = 'docker-hosted'
     }
 
