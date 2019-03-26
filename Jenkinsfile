@@ -2,11 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPOSITORY = 'https://github.com/kmienata/puma-ephemeral-gateway-config'
-        BASE_IMAGE_NAME = 'gateway'
-        BASE_IMAGE_TAG = 'wlui-test'
-        BASE_IMAGE_REGISTRY_HOSTNAME = 'docker.stable1.apimgcp.com'
-        BASE_IMAGE_REGISTRY_REPOSITORY    = 'docker-hosted'
+        GIT_REPOSITORY = 'https://github.com/wynnel/gateway-developer-example'
         NEW_IMAGE_NAME = 'gateway'
         NEW_IMAGE_TAG = 'v1'
         NEW_IMAGE_REGISTRY_HOSTNAME = 'docker.stable1.apimgcp.com'
@@ -28,9 +24,7 @@ pipeline {
         }
         stage('Build Image with Docker') {
             steps {
-                sh """docker login ${env.BASE_IMAGE_REGISTRY_HOSTNAME} -u ${params.BASE_IMAGE_REGISTRY_USER} --password ${params.BASE_IMAGE_REGISTRY_PASSWORD}
-                        docker pull ${env.BASE_IMAGE_REGISTRY_HOSTNAME}/repository/${env.BASE_IMAGE_REGISTRY_REPOSITORY}/${env.BASE_IMAGE_NAME}:${env.BASE_IMAGE_TAG}
-                        ./gradlew -DimageName=${env.NEW_IMAGE_NAME} -DimageTag=${env.NEW_IMAGE_TAG} buildDockerImage"""
+                sh """./gradlew -DimageName=${env.NEW_IMAGE_NAME} -DimageTag=${env.NEW_IMAGE_TAG} buildDockerImage"""
             }
         }
         stage('Testing Docker image') {
@@ -57,12 +51,6 @@ pipeline {
 		        sh """docker login ${env.NEW_IMAGE_REGISTRY_HOSTNAME} -u ${params.NEW_IMAGE_REGISTRY_USER} --password ${params.NEW_IMAGE_REGISTRY_PASSWORD}
                      docker tag ${env.NEW_IMAGE_NAME}:${env.NEW_IMAGE_TAG} ${env.NEW_IMAGE_REGISTRY_HOSTNAME}/repository/${env.NEW_IMAGE_REGISTRY_REPOSITORY}/${env.NEW_IMAGE_NAME}:${env.NEW_IMAGE_TAG}
 			         docker push ${env.NEW_IMAGE_REGISTRY_HOSTNAME}/repository/${env.NEW_IMAGE_REGISTRY_REPOSITORY}/${env.NEW_IMAGE_NAME}:${env.NEW_IMAGE_TAG}"""
-            }
-        }
-        stage('Update current gateway with the latest gateway image from nexus') {
-            steps {
-                sh """kubectl get svc
-                    kubectl set image deployment/gw-default gw=${env.NEW_IMAGE_REGISTRY_HOSTNAME}/repository/${env.NEW_IMAGE_REGISTRY_REPOSITORY}/${env.NEW_IMAGE_NAME}:${env.NEW_IMAGE_TAG}"""
             }
         }
     }
