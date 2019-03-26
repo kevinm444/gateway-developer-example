@@ -4,7 +4,7 @@ pipeline {
     environment {
         GIT_REPOSITORY = 'https://github.com/wynnel/gateway-developer-example'
         NEW_IMAGE_NAME = 'gateway'
-        NEW_IMAGE_TAG = "${BUILD_NUMBER}_${GIT_LAST_COMMIT}"
+        NEW_IMAGE_TAG = "${BUILD_NUMBER}"
         NEW_IMAGE_REGISTRY_REPOSITORY    = 'docker-hosted'
     }
 
@@ -42,7 +42,7 @@ pipeline {
                         }
                     }
                 }
-                sh "docker stop ${env.GATEWAY_CONTAINER_ID}"
+                sh "docker stop ${env.GATEWAY_CONTAINER_ID}"   
             }
         }
 	   stage('Login Docker, Tag and push docker image to Nexus') {
