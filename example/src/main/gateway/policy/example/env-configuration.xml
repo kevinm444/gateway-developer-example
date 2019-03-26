@@ -6,5 +6,10 @@ Password Secured Password:${secpass.password.plaintext}
 example Context Variable:${example}]]></L7p:ResponseBody>
             <L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/>
         </L7p:HardcodedResponse>
+        <L7p:AuditDetailAssertion>
+            <L7p:Detail stringValue="Service: /env-configuration"/>
+            <L7p:Level stringValue="WARNING"/>
+            <L7p:LoggingOnly booleanValue="true"/>
+        </L7p:AuditDetailAssertion>
     </wsp:All>
 </wsp:Policy>
