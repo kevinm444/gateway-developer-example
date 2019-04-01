@@ -51,6 +51,7 @@ import com.bmuschko.gradle.docker.tasks.image.*
 // Use task types
 task buildDockerImage(type: DockerBuildImage) {
     apply plugin: 'com.bmuschko.docker-remote-api'
-    inputDir = file('./')
+    inputDir.set(file('./'))
     tags.add(System.getProperty("imageName")+ ":" + System.getProperty("imageTag"))
+    pull.set(true)
 }
