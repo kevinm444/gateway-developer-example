@@ -14,6 +14,11 @@ pipeline {
                 git "${env.GIT_REPOSITORY}"
             }
         }
+        stage('Download dependencies') {
+            steps {
+                sh """curl https://${env.NEXUS_REGISTRY_HOSTNAME}/repository/maven-releases/com/ca/apim/gateway/extension/PolicyBackedServiceMetricsEventListener/1.0.2/PolicyBackedServiceMetricsEventListener-1.0.2.aar > docker/PolicyBackedServiceMetricsEventListener-1.0.2.aar"""
+            }
+        }
         stage('Gradle Preparation & Build') {
             steps {
                 sh '''./gradlew clean
