@@ -1,6 +1,6 @@
 
 # About
-This is an example repository which uses the [CA API Gateway Developer Plugin][gateway-developer-plugin] to demonstrate the deployment configurations in a CICD pipeline.
+This is an example repository which uses the [CA API Gateway Developer Plugin][gateway-developer-plugin] to demonstrate storing deployment configurations in a CICD pipeline.
 
 # Getting Started
 
