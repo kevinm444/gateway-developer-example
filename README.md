@@ -27,6 +27,15 @@ If you connect to the running gateway with the CA API Gateway Policy Manager and
 This will export the changes to the various project folders. Note that your local edits will be overridden by changes from the gateway
 
 ## CICD
+
+Add the Policy Backed Service Metrics 1.0.2 assertion to your nexus repository:
+1) Get a copy of PolicyBackedServiceMetricsEventListener-1.0.2.aar
+1) Upload to your nexus repository 
+   1) Upload -> maven-releases
+   1) Group ID: com.ca.apim.gateway.extension
+   1) Artifact ID: PolicyBackedServiceMetricsEventListener
+   1) Version: 1.0.2
+
 Build configurations are described in the `Jenkinsfile`. 
 
 The following parameters are required:
