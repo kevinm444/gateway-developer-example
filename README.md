@@ -13,7 +13,7 @@ In order to package the solution into something that can be applied to the CA AP
 In order to run the solution you need to do the following:
 
 1) Put a valid gateway license in the `docker` folder. The license file should be called `license.xml`. For information on getting a license see the [License Section from the Gateway Container readme](https://hub.docker.com/r/caapim/gateway/).
-1) Put a copy of the Policy Backed Service Metrics 1.0.2 assertion in the `docker` folder. 
+1) Put a copy of PolicyBackedServiceMetricsEventListener-1.0.2.aar in the `docker` folder. 
 1) Make sure you have already built the solution by running `./gradlew build`
 1) Start the Gateway Container by running: `docker-compose up`
 

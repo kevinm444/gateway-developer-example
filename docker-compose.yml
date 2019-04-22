@@ -14,6 +14,7 @@ services:
     volumes:
       - /opt/SecureSpan/Gateway/node/default/etc/bootstrap/services/restman
       - ./deployment/build/gateway/deployment-0.6.0.gw7:/opt/docker/rc.d/deployment.gw7
+      - ./docker/PolicyBackedServiceMetricsEventListener-1.0.2.aar:/opt/SecureSpan/Gateway/runtime/modules/assertions/PolicyBackedServiceMetricsEventListener-1.0.2.aar
     secrets:
       - source: license
         target: /opt/SecureSpan/Gateway/node/default/etc/bootstrap/license/license.xml
@@ -25,6 +26,8 @@ services:
       ENV.PROPERTY.gateway.template: "docker env variable"
       ENV.CONTEXT_VARIABLE_PROPERTY.env-configuration.example: "example value"
       ENV.PASSWORD.password: "super secret"
+      ENV.CONTEXT_VARIABLE_PROPERTY.influxdb.influxdb: "influxdb"
+      ENV.CONTEXT_VARIABLE_PROPERTY.influxdb.tags: "env=design"
 secrets:
   license:
     file: ./docker/license.xml
