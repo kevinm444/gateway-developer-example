@@ -13,7 +13,6 @@ In order to package the solution into something that can be applied to the CA AP
 In order to run the solution you need to do the following:
 
 1) Put a valid gateway license in the `docker` folder. The license file should be called `license.xml`. For information on getting a license see the [License Section from the Gateway Container readme](https://hub.docker.com/r/caapim/gateway/).
-1) Put a copy of PolicyBackedServiceMetricsEventListener-1.0.2.aar in the `docker` folder. 
 1) Make sure you have already built the solution by running `./gradlew build`
 1) Start the Gateway Container by running: `docker-compose up`
 
@@ -28,24 +27,14 @@ This will export the changes to the various project folders. Note that your loca
 
 ## CICD
 
-Add the Policy Backed Service Metrics 1.0.2 assertion to your nexus repository:
-1) Get a copy of PolicyBackedServiceMetricsEventListener-1.0.2.aar
-1) Upload to your nexus repository 
-   1) Upload -> maven-releases
-   1) Group ID: com.ca.apim.gateway.extension
-   1) Artifact ID: PolicyBackedServiceMetricsEventListener
-   1) Version: 1.0.2
-
 Build configurations are described in the `Jenkinsfile`. 
 
 The following parameters are required:
 1) `NEW_IMAGE_REGISTRY_HOSTNAME` registry to publish to
 1) `NEW_IMAGE_REGISTRY_USER` credentials for registry to publish to	
 1) `NEW_IMAGE_REGISTRY_PASSWORD` credentials for registry to publish to	
-1) `NEXUS_REGISTRY_HOSTNAME` registry to pull the Policy Backed Service Metrics 1.0.2 assertion from 
 
 This example includes the following steps:
-1) Downloading the Policy Backed Service Metrics 1.0.2 assertion
 1) Builds and run the gateway
 1) Test by using the endpoint `/env-configuration`
 1) publish the docker image with build number as tag
