@@ -7,6 +7,7 @@
         <L7p:HardcodedResponse>
             <L7p:ResponseBody><![CDATA[Template cluster property: ${gateway.template}
 Password Secured Password: ${secpass.password.plaintext}
+Password Secured Gateway: ${secpass.gateway.plaintext}
 example Context Variable: ${ENV.example}
 !!!!! ]]></L7p:ResponseBody>
             <L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/>
