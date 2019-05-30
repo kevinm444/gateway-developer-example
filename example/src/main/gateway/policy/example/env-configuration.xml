@@ -1,14 +1,11 @@
 <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy" xmlns:L7p="http://www.layer7tech.com/ws/policy">
     <wsp:All wsp:Usage="Required">
-        <L7p:SetVariable>
-            <L7p:Expression><![CDATA[default value]]></L7p:Expression>
-            <L7p:VariableToSet stringValue="ENV.example"/>
-        </L7p:SetVariable>
         <L7p:HardcodedResponse>
             <L7p:ResponseBody><![CDATA[Template cluster property: ${gateway.template}
 Password Secured Password: ${secpass.password.plaintext}
 Password Secured Gateway: ${secpass.gateway.plaintext}
-example Context Variable: ${ENV.example}
+example Context Variable:
+example jdbc connection Variable:
 !!!!! ]]></L7p:ResponseBody>
             <L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/>
         </L7p:HardcodedResponse>
