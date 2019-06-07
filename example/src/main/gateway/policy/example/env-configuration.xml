@@ -2,8 +2,8 @@
     <wsp:All wsp:Usage="Required">
         <L7p:HardcodedResponse>
             <L7p:ResponseBody><![CDATA[Template cluster property: ${gateway.template}
-Password Secured Password: ${secpass.password.plaintext}
-Password Secured Gateway: ${secpass.gateway.plaintext}
+Password Secured Password:
+Password Secured Gateway:
 example Context Variable:
 example jdbc connection Variable:
 !!!!! ]]></L7p:ResponseBody>
