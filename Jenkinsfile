@@ -24,7 +24,7 @@ pipeline {
         stage('Build Image with Docker') {
             steps {
                 sh """./gradlew -DimageName=${env.NEW_IMAGE_NAME} -DimageTag=${env.NEW_IMAGE_TAG} buildDockerImage
-		docker inspect ${env.NEW_IMAGE_NAME}:{env.NEW_IMAGE_TAG}"""
+		docker inspect ${env.NEW_IMAGE_NAME}:${env.NEW_IMAGE_TAG}"""
             }
         }
 	   stage('Login Docker, Tag and push docker image to Nexus') {
