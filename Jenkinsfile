@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPOSITORY = 'git@github.com/kevinm444/gateway-developer-example-private.git'
+        GIT_REPOSITORY = 'https://github.com/kevinm444/gateway-developer-example.git'
         NEW_IMAGE_NAME = 'gateway'
         NEW_IMAGE_TAG = "${BUILD_NUMBER}"
         NEW_IMAGE_REGISTRY_REPOSITORY = 'docker-hosted'
